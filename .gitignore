@@ -1,2 +1,6 @@
 youtube-dl-extract-info.zip
 youtube_dl
+node_modules
+.serverless
+package.json
+package-lock.json

@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 from youtube_dl import YoutubeDL
 import json
 import urllib.parse

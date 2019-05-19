@@ -1,0 +1,40 @@
+service: ${opt:service, 'youtube-dl-extract-info'}
+
+resources:
+  Description: YouTube-dl as an API
+
+plugins:
+  - serverless-prune-plugin
+package:
+  individually: true
+  exclude:
+    - ./**
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: ${opt:stage, 'dev'}
+  version: ${opt:version, 'snapshot'}
+  region: ${opt:region, 'eu-central-1'}
+  timeout: 30
+  apiName: ${self:service}-${self:provider.stage}
+
+functions:
+  youtube-dl-extract-info:
+    name: ${self:service}-${self:provider.stage}
+    description: Youtube-dl extract info based on URL
+    handler: extract_info.lambda_handler
+    events:
+      - http:
+          path: extract-info
+          method: get
+    package:
+       include:
+       - extract_info.py
+       - youtube_dl/**
+
+custom:
+  prune:
+    automatic: true
+    number: 2
+
