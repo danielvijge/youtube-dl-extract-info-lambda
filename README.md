@@ -8,7 +8,7 @@
 * Run *./deploy.sh* to deploy the function to AWS
 
 ## Configuration
-* You can add options to the deploy script to configure the name and region. Supported variables are *service*, *region*, *state*, and *version*. Any serverless command line option can also be passed.
+* You can add options to the deploy script to configure the name and region. Supported variables are *region* and *stage*. Any serverless command line option can also be passed.
 
 Your API is now deployed. The stage screen will display the API address. You can invoke your API with:
 

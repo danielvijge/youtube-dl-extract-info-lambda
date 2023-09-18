@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ !  -L "youtube_dl" ]; then
+if [ ! -L "youtube_dl" ]; then
     if [ ! -d "youtube-dl" ]; then
         echo "Cloning youtube-dl..."
         git submodule add https://github.com/rg3/youtube-dl.git
@@ -13,5 +13,4 @@ cd youtube-dl
 git pull
 cd ..
 
-serverless plugin install --name serverless-prune-plugin
 serverless deploy $@
